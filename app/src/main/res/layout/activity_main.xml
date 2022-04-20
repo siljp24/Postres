@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    
+    <data>
+        <variable
+            name="ingresos"
+            type="Double" />
+        <variable
+            name="cantidadVendida"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+           app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/bakery_back"
+            android:scaleType="centerCrop"/>
+        <ImageButton
+            android:id="@+id/button_postre"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/white_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/cupcake"
+            android:scaleType="centerCrop"
+            android:background="?android:selectableItemBackground"/>
+        <View
+            android:id="@+id/white_background"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/white_box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/texto_cantidad_vendida"/>
+        <TextView
+            android:id="@+id/tv_ingresos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="16dp"
+            android:text='@{ ingresos.toString() + "€"}'
+            android:textColor="@color/green"
+            android:textSize="33sp"
+            tools:text="34.50 €"/>
+        <TextView
+            android:id="@+id/texto_cantidad_vendida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_cantidad_vendida"
+            android:text="Postres vendidos"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            />
+        <TextView
+            android:id="@+id/tv_cantidad_vendida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_ingresos"
+            android:padding="16dp"
+            android:text='@{cantidadVendida.toString()}'
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            tools:text="12"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+</layout>
